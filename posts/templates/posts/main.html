@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="{% static '/css/posts/main.css' %}">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/f34d367e70.js" crossorigin="anonymous"></script>
+
+    <title>{% block title %} Posts {% endblock title %} - Saud</title>
+</head>
+
+<body>
+    {% include 'posts/navbar.html' %}
+
+    <div class="messages text-center">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} <span style="color: red;"> Important: {{ message }} </span>{% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %} <span style="color: rgb(200, 200, 24)"> Caution: {{ message }} </span>{% endif %}
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} <span style="color: rgb(65, 200, 24)"> {{ message }} </span> {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    {% block content %}
+        <div class="container">
+            <div class="col-12">
+                <a href="{% url 'posts:submit_post' %}" style="text-decoration: none; cursor: default;">
+
+                    <div class="heading">
+                        <h3>Create a post</h3>
+                    </div>
+                    
+                    <form action="" method="post" id="form">{% csrf_token %}
+                        <div class="form-fields">
+                            {% for field in form %}
+                            {{field}}
+                            {% endfor %}
+                        </div>
+                    </form>
+                </a>
+            </div>
+        </div>
+
+        <div class="container">
+                {% if posts %}
+                    {% for post in posts %}
+                        <div class="msg-container">
+                            <div class="sub-container">
+                                <p class="datetime"><span>{{post.published_date}}</span> | From: <span
+                                        style="text-transform: capitalize;">{{post.user}}<span></p>
+
+                                        <div class="message">
+
+                                            {% if post.user == request.user %}
+                                            <div style="height: 25px;">
+                                                <div style="height: 25px; float: right; display: flex;">
+                                                    <p><a href="{% url 'posts:update_post' post.id %}"><img class="edit"src="{% static '/images/edit.svg' %}"></a></p>
+                                                    <p><a href="{% url 'posts:delete_post' post.id %}"><img class="delete" src="{% static '/images/delete.svg' %}"></a></p>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            <p style="z-index: 1;"><span><strong>{{post.message}}</strong></span></p>
+        
+                                            {% if post.description %}
+                                                <p style="z-index: 1;"><span>{{post.description}}</span></p>
+                                            {% endif %}
+                                        </div>
+    
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center" style="margin-top: 40px; font-size: 20px;">No data to display.</p>
+                    <p class="text-center">Create a post above or <a href="{% url 'posts:submit_post' %}">click me</a> </p>
+                {% endif %}
+                <hr style="color: #aaaaaa">
+
+        </div>
+        <br>
+    {% endblock content %}
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

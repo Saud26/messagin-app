@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(33, 33, 33);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h6, p, span, a, button {
+    color: #aaaaaa;
+}
+
+
+.msg-container {
+    margin: 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+.sub-container {
+    width: auto;
+    max-width: 600px;
+    padding: 10px 15px;
+}
+
+.datetime {
+    font-size: 14px;
+}
+
+.message {
+    background-color: #2f2f2f;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: -10px;
+    word-break: break-all;
+    width: 500px;
+}
+
+.message > p:nth-child(2) {
+    color: #f13737 !important;
+    font-size: 16px;
+}
+
+.delete, .edit {
+    margin: 0px 7px;
+}
+
+.view {
+    margin: 0px 10px;
+}
+
+.input {
+    border-radius: 5px;
+    width: 100%;
+    padding: 12px 20px;
+    font-weight: 600;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.342);
+    border-bottom: 2px solid white;
+}
+
+.des {
+    min-height: 150px;
+}
+
+.input:focus{
+    background-color: rgba(0, 0, 0, 0.411);
+}
+
+.form-btn {
+    padding: 7px 25px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: rgb(124,125,124);
+}
+
+.form-cancel-btn {
+    margin-left:10px ;
+    padding: 7px 25px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: rgb(124,125,124);
+    background-color: transparent;
+    border: 1px solid rgb(124,125,124);
+}
+
+.hr {
+    color: rgb(143,142,142);
+}
+
+.heading {
+    margin-top: 20px;
+}
+
+.rules {
+    padding: 20px 10px;
+    width: 100%;
+    height: auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    background-color: rgb(22,22,22);
+    font-size: 15px;
+}
+
+.messages > h2 {
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid white;
+}

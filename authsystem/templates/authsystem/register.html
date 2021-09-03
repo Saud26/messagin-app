@@ -1,0 +1,54 @@
+{% extends 'authsystem/index.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/k.css' %}">
+
+{% block title %} Register {% endblock title %}
+
+{% block content %}
+
+
+<nav>
+    <div style="display:flex; justify-content:space-around; height: 10vh; align-items: center;">
+        <a href="{% url 'authsystem:home' %}">Home</a>
+        <a href="{% url 'authsystem:login' %}">Login</a>
+    </div>
+</nav>
+
+
+<div class="register">
+    <div class="register-form">
+        <div class="register-form-heading text-center">
+            <h4>Register</h4>
+        </div>
+        <div class="register-form-input-fields">
+            <form action="" method="POST">{% csrf_token %}
+
+                <label>Username</label>
+                {{form.username}}
+                
+                <label>Email</label>
+                {{form.email}}
+                
+                <label>Password</label>
+                {{form.password1}}
+                
+                <label>Password Confirmation</label>
+                {{form.password2}}
+
+                
+                <div class="register-form-button">
+                    <button type="submit">Register</button>
+                    <p style="margin-top: 10px;" class="text-center">Already have an account? <a class="a" href="{% url 'authsystem:login' %}">Sign in here</a></p>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="error-div">
+    <p style="color: red;">{{form.errors}}</p>
+</div>
+
+{% endblock content %}

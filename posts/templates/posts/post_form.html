@@ -1,0 +1,56 @@
+{% extends 'posts/main.html' %}
+{% load static %}
+<style>
+    .error-msg {
+        color: red;
+        font-size: 16px;
+        font-weight: 500;
+    }
+</style>
+{% block content %}
+
+<div class="container row" style="margin: auto;">
+    <div class="col-lg-8">
+
+        <div class="heading">
+            <h3>Create a post</h3>
+            <hr class="hr">
+        </div>
+
+        <form action="" method="post" id="form">{% csrf_token %}
+            <div class="form-fields">
+                {% for field in form %}
+                {{field}}
+                {% endfor %}
+            </div>
+            <div class="form-btn-container">
+                <button type="submit" class="form-btn">Post</button>
+                <button type="button" onclick="myFunction()" class="form-cancel-btn"><img src="{% static '/images/clear.svg' %}"> Cancel</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+        <div class="rules">
+            <h4 class="text-center"><strong>Posting to site</strong></h4>
+            <hr />
+            <p>1. Remember the human</p>
+            <hr />
+            <p>2. Behave like you would in real life</p>
+            <hr />
+            <p>3. Credit the owner if you're using their content</p>
+            <hr />
+            <p>4. Look for the original source of content</p>
+            <hr />
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function myFunction() {
+        document.getElementById("form").reset();
+    }
+</script>
+
+{% endblock content %}

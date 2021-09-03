@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="{% static '/css/settings.css' %}">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+
+    
+    <title>Setting - {% block pagetitle %}General{% endblock pagetitle %}</title>
+</head>
+<body>
+    <div class="r">
+
+        <div class="left-container">
+
+            <div class="logo">
+                <h1><a href="{% url 'posts:homePage' %}">Saud</a></h1>
+            </div>
+
+            <div class="v-navbar">
+                <ul>
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'authsystem:settings' user.id %}" class="link {% block active %}active{% endblock active %}" id="account">General</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a class="link {% block active1 %}{% endblock active1 %}" style="opacity: 0.4;">Password</a>
+                    </li>
+                    {% if request.user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'authsystem:logout' %}" class="link">Logout</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+        </div>
+        <div class="right-container">
+
+            <div class="heading">
+                <h1>{% block title %}general{% endblock title %}</h1>
+            </div>
+
+            <div class="content">
+                {% block content %}
+                <!-- ACCOUNT -->
+                <p>You can change your username or email address from here.</p>
+                <div class="form ">
+                    <form action="" method="POST">{% csrf_token %}
+
+                        {% for field in form %}   
+                            {{field.label}}
+                            {{field}}
+                            <hr>
+                        {% endfor %}
+
+                        <button type="submit" class=" form-btn">Save Changes</button>
+
+                    </form>
+                </div>
+
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        let password = document.getElementById('password')
+        let account = document.getElementById('account')
+        
+        password.addEventListener("click", function(){
+            password.classList.add("active");
+            account.classList.remove("active");
+
+
+        })
+    </script> -->
+
+</body>
+</html>

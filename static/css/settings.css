@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #212121;
+    color: #aaaaaa;
+    font-family: 'Poppins', sans-serif;
+}
+
+.r {
+    display: flex;
+}
+
+ul {list-style: none !important; padding: 0; margin: 0;}
+a {color:  #aaaaaa!important; transition: ease 0.3s 0s; text-decoration: none;}
+a:hover {color: #aaaaaa49 !important;}
+a {
+    display: block;
+    width: auto;
+    margin-top: 10px;
+    padding: 0px 50px;
+}
+
+.a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.5s ease 0s;
+    padding: 15px 200px;
+    border: 1px rgba(0, 162, 255, 0.090) solid;
+    font-size: 16px;
+    font-weight: 350;
+    text-transform: uppercase;
+}
+
+.a:hover {
+    border: 1px transparent solid;
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+
+.active {
+    color: #ececec !important;
+    font-weight: 550;
+}
+
+li {
+    height: 100px;
+}
+
+.input {
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+    max-width: 300px;
+    padding: 5px 10px;
+    font-weight: 600;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.342);
+    border-bottom: 2px solid white;
+}
+
+
+.left-container {
+    width: 20%;
+    height: 100vh;
+    border-right: 1px solid #aaaaaa;
+}
+
+.left-container > .logo {
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #aaaaaa49;
+}
+
+.left-container > .logo > h1 {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+.left-container > .v-navbar {
+    padding-top: 100px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+.right-container {
+    width: 80%;
+    height: 100vh;
+
+}
+
+.right-container > .heading {
+    width: 100%;
+    height: 70px;
+    text-transform: uppercase;
+    background-color: #212529;
+
+}
+.right-container > .heading > h1 {
+    text-align: center;
+    vertical-align: middle;
+    line-height: 70px;
+}
+
+.right-container > .content {
+    width: 90%;
+    height: 80vh;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    background-color: #1D1D1D;
+}
+
+.form-btn {
+    padding: 7px 25px;
+    border-radius: 25px;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: rgb(124,125,124);
+}
+
+.input {
+    width: 100%;
+    padding: 12px 20px;
+    font-weight: 600;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.342);
+    border-bottom: 2px solid white;
+}
+
+
