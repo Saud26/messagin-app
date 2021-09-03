@@ -35,6 +35,6 @@ urlpatterns = [
 
 
 # template_name="authsystem/password_reset.html"
-#template_name="authsystem/password_reset_sent.html"
-#template_name="authsystem/password_reset_form.html"
+# template_name="authsystem/password_reset_sent.html"
+# template_name="authsystem/password_reset_form.html"
 # template_name="authsystem/password_reset_done.html"
