@@ -28,6 +28,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'saudz.herokuapp.com']
 
+ADMINS = [
+    ('Saud', 'SaudZubedi26@gmail.com')
+]
+
 
 # Application definition
 
@@ -42,6 +46,8 @@ INSTALLED_APPS = [
     'authsystem',
     'posts',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
