@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(33, 33, 33);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3, h4, h6, p, span, a, button {
+    color: #aaaaaa;
+}
+
+a {
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 15px 70px;
+    font-size: 20px;
+    width: auto;
+    margin: 15px;
+    transition: ease 0.3s 0s;
+    letter-spacing: 2px;
+}
+
+a:hover {
+    border: 1px solid transparent;
+    background-color: rgb(24, 24, 24);
+}
+
+.container {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-container {
+    height: 50px;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+}
