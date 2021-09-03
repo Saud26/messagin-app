@@ -69,3 +69,6 @@ def delete_post(request, pk):
 
     context = {'post':post}
     return render(request, 'posts/delete.html', context)
+
+def handler404(request, exception=None):
+    return render(request, 'posts/404.html')
