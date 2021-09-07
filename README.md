@@ -1,5 +1,5 @@
-# messagin-app
+# Messagin-App
 
-Messaging App built with Python/Django.
+Messaging App Built With Python/Django.
 
 Live on: https://saudz.herokuapp.com/
